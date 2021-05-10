@@ -1,0 +1,11 @@
+package core;
+
+public class EmailSendCheckAdapter implements EmailSendCheckService {
+
+	@Override
+	public boolean sendCheck() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

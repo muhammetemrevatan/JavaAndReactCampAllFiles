@@ -1,0 +1,10 @@
+package dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class XyzUserDao {
+	private List<String> users = new ArrayList<String>();
+	
+	
+}

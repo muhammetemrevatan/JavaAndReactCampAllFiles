@@ -1,0 +1,7 @@
+package Concrete;
+
+import Abstract.ISalesCustomer;
+
+public class SalesManager implements ISalesCustomer{
+	
+}

@@ -1,0 +1,6 @@
+package Entities;
+
+public class Campaign {
+	private int campaignid;
+	private String campaignname;
+}

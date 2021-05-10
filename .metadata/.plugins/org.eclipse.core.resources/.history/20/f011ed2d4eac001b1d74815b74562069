@@ -1,0 +1,11 @@
+import Entities.Customer;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customer customer1 = new Customer(1, "queRy0", "Emre", "Vatan", "1998", "15145897562");
+
+	}
+
+}

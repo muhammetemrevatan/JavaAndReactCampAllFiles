@@ -1,0 +1,7 @@
+package Abstract;
+
+import Entities.*;
+
+public interface ICampaignService {
+	void controlGameId(Campaign)
+}

@@ -1,0 +1,19 @@
+package core;
+
+import JGoogle.GoogleAdapter;
+import entities.concretes.User;
+
+public class JGoogleManagerAdapter implements CheckAdapter {
+	
+	@Override
+	public void register(User user) {
+		user.setFirstname("Mehmet");
+		user.setLastname("Bozca");
+		user.setParola("12345689");
+		user.setEmail(mehmetbozca@gmail.com);
+		GoogleAdapter googleAdapter = new GoogleAdapter();
+		googleAdapter.googleRegister();
+		
+	}
+
+}

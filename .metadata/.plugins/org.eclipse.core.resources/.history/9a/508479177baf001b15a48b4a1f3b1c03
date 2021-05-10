@@ -1,0 +1,13 @@
+package core;
+
+public class EmailSendAdapter implements EmailSendService {
+
+	@Override
+	public void sendCheckMail() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+}

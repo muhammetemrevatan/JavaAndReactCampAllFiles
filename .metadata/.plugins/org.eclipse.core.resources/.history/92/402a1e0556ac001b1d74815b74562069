@@ -1,0 +1,13 @@
+package Entities;
+
+public class Campaign {
+	private int campaignId;
+	private String campaignName;
+	private double campaignDiscount;
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package core;
+
+public class EmailSendAdapter implements EmailSendService {
+
+	@Override
+	public String sendCheckMail() {
+		return true;
+	}
+	
+}

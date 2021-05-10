@@ -1,0 +1,6 @@
+package Abstract;
+
+public interface ISalesCustomer {
+	
+	void sale(Customer customer)
+}

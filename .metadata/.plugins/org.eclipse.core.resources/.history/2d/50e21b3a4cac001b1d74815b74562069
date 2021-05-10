@@ -1,0 +1,7 @@
+package Concrete;
+
+import Abstract.ICustomerService;
+
+public class BaseCustomerManager implements ICustomerService{
+
+}

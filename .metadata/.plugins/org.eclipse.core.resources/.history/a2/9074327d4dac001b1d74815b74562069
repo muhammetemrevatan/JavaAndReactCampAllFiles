@@ -1,0 +1,14 @@
+package Concrete;
+
+import Entities.Customer;
+
+public class CustomerManager extends BaseCustomerManager{
+
+	@Override
+	public void save(Customer customer) {
+		super.save(customer);
+		
+	}
+	 
+	
+}

@@ -1,0 +1,13 @@
+package core;
+
+import JGoogle.GoogleAdapter;
+
+public class JGoogleManagerAdapter implements CheckAdapter {
+
+	@Override
+	public void register() {
+		GoogleAdapter googleAdapter = new GoogleAdapter();
+		
+	}
+
+}

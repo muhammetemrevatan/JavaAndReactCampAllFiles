@@ -1,0 +1,18 @@
+import business.concretes.UserManager;
+import core.EmailCheckAdapter;
+import dataAccess.concretes.XyzUserDao;
+import entities.concretes.User;
+
+public class Main {
+
+	public static void main(String[] args) {
+		User user1 = new User("Emre","Vatan","muhammetemrevatan@gmail.com","123456");
+		User user2 = new User("M","V","sfsdsfsdfds","12345");
+		UserManager userManager = new UserManager(new EmailCheckAdapter(),new XyzUserDao());
+		
+		userManager.register(user1);
+		System.out.println("     ---------    ");
+		userManager.register(user2);
+	}
+
+}

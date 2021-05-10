@@ -1,0 +1,27 @@
+package Concrete;
+
+import Abstract.ICustomerCheckService;
+import Entities.Customer;
+
+public class CustomerManager extends BaseCustomerManager{
+	
+	private ICustomerCheckService customerCheck;
+	
+
+	public CustomerManager(ICustomerCheckService customerCheck) {
+		this.customerCheck = customerCheck;
+	}
+
+
+	@Override
+	public void save(Customer customer) {
+		if(customerCheck.CheckIfRealPerson(customer)) {
+			System.out.println("Marnis dogrulandý kayýt baþarýlý..");
+			super.save(customer);
+		}else {
+			System.out.println("Mernis onaylanmadý kayýt baþarýsýz...");
+		}
+	}
+	 
+	
+}

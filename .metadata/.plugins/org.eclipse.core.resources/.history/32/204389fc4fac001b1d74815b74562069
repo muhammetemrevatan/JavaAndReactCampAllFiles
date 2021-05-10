@@ -1,0 +1,14 @@
+package Entities;
+
+public class Sales {
+	private int gameid;
+	private int price;
+	private String gamename;
+	
+	public Sales(int gameid, int price, String gamename) {
+		super();
+		this.gameid = gameid;
+		this.price = price;
+		this.gamename = gamename;
+	}
+}

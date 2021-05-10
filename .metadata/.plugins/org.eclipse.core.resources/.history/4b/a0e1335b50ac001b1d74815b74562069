@@ -1,0 +1,9 @@
+package Abstract;
+
+import Entities.Customer;
+import Entities.Sales;
+
+public interface ISalesCustomer {
+	
+	void sale(Customer customer,Sales sale);
+}

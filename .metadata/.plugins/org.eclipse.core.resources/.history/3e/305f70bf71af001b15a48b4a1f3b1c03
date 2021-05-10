@@ -1,0 +1,12 @@
+package dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dataAccess.abstracts.UserDao;
+
+public class XyzUserDao implements UserDao{
+	private List<String> users = new ArrayList<String>();
+	
+	
+}

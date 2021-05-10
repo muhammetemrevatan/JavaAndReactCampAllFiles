@@ -1,0 +1,13 @@
+package core;
+
+import entities.concretes.User;
+
+public class EmailCheckAdapter implements EmailCheckService{
+
+	@Override
+	public boolean emailCheck(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

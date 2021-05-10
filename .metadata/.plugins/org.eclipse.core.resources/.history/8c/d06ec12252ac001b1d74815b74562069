@@ -1,0 +1,10 @@
+package Concrete;
+
+import Entities.Campaign;
+
+public class CampaignManager {
+	public void addCampaign(Campaign campaign) {
+		System.out.println("Kampanya eklendi.. : " + campaign.getCampaignName());
+	}
+	
+}

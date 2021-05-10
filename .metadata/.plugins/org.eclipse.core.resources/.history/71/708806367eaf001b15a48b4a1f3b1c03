@@ -1,0 +1,7 @@
+package JGoogle;
+
+public class GoogleAdapter {
+	public void googleRegister() {
+		
+	}
+}

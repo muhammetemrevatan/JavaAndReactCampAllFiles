@@ -1,0 +1,9 @@
+
+public class Customer {
+	private int playerid;
+	private String playernick;
+	private String firstname;
+	private String lastname;
+	private String date;
+	private String identification;
+}

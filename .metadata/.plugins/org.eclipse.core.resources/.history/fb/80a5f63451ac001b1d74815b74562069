@@ -1,0 +1,22 @@
+import Concrete.BaseCustomerManager;
+import Concrete.CustomerManager;
+import Concrete.MernisServiceAdaptor;
+import Concrete.SalesManager;
+import Entities.Customer;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customer customer1 = new Customer(1, "queRy0", "Emre", "Vatan", "1998", "15145897562");
+		
+		BaseCustomerManager customerManager = new CustomerManager(new MernisServiceAdaptor());
+		SalesManager salesManager = new SalesManager();
+		
+		customerManager.save(customer1);
+		customerManager.update(customer1);
+		customerManager.delete(customer1);
+
+	}
+
+}

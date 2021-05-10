@@ -1,0 +1,9 @@
+package business.abstracts;
+
+import entities.concretes.User;
+
+public interface UserService {
+	void register(User user);
+	boolean emailIsItUsed(String email);
+	void login(User user);
+}

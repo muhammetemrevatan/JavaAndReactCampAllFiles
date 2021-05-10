@@ -1,0 +1,89 @@
+package business.concretes;
+
+import java.util.Scanner;
+
+import business.abstracts.UserService;
+import core.CheckAdapter;
+import core.EmailCheckService;
+import core.EmailSendCheckService;
+import core.EmailSendService;
+import dataAccess.abstracts.UserDao;
+import entities.concretes.User;
+
+public class UserManager implements UserService {
+	private EmailCheckService emailCheckService;
+	private UserDao userDao;
+	private EmailSendService emailSendService;
+	private EmailSendCheckService emailSendCheckService;
+	private CheckAdapter checkAdapter;
+
+	public UserManager(EmailCheckService emailCheckService, UserDao userDao, EmailSendService emailSendService
+			,EmailSendCheckService emailSendCheckService) {
+		super();
+		this.emailCheckService = emailCheckService;
+		this.userDao = userDao;
+		this.emailSendService = emailSendService;
+		this.emailSendCheckService = emailSendCheckService;
+	}
+	
+	public UserManager(CheckAdapter checkAdapter) {
+		this.checkAdapter = checkAdapter;
+	}
+
+	Scanner input = new Scanner(System.in);
+	@Override
+	public void register(User user) {
+		System.out.println("Google ile kayýt yapýlsýn mý?");
+		String iter = input.next();
+		System.out.println(iter);
+		if(iter == "Evet") {
+			checkAdapter.register(user);
+		}else {
+			if(user.getParola().length() >= 6) {
+				if(user.getFirstname().length() >= 2) {
+					if(user.getLastname().length() >= 2) {
+						if(emailCheckService.emailCheck(user) == true) {
+							if(emailIsItUsed(user.getEmail()) == true) {
+								emailSendService.sendCheckMail();
+								if(emailSendCheckService.sendCheck() == true) {
+									System.out.println("Baþarý ile kayýt olundu..");
+									this.userDao.add(user);
+									this.userDao.addEmail(user);
+								}
+							}else {
+								System.out.println("Bu eposta daha önce alýnmýþ..Kayýt baþarýsýz");
+							}
+						}else {
+							System.out.println("Email kurallara uygun girilmelidir.");
+						}
+					}else {
+						System.out.println("(Soyisim 2 karakterden daha fazla olmalýdýr.)");
+					}
+				}else {
+					System.out.println("(Ýsim 2 karakterden daha fazla olmalýdýr.)");
+				}
+			}else {
+				System.out.println("(Parola 6 karakterden daha fazla olmalýdýr.)");
+			}
+		}
+			
+		
+	}
+
+
+	@Override
+	public boolean emailIsItUsed(String email) {
+		boolean result = false;
+		if (userDao.getEmail().contains(email)) {
+			result = false;
+		}else {
+			result = true;
+		}
+		return result;
+	}
+
+
+	
+
+	
+}

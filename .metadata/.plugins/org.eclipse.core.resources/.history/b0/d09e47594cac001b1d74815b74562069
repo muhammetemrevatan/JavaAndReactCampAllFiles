@@ -1,0 +1,26 @@
+package Concrete;
+
+import Abstract.ICustomerService;
+import Entities.Customer;
+
+public class BaseCustomerManager implements ICustomerService{
+
+	@Override
+	public void save(Customer customer) {
+		System.out.println("Saved to player : " + );
+		
+	}
+
+	@Override
+	public void update(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

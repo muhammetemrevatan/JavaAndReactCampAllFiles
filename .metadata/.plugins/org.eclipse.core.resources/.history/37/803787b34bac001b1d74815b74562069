@@ -1,0 +1,7 @@
+package Entities;
+
+import Entities.Customer;
+
+public interface ICustomerService {
+	void add(Customer customer);
+}

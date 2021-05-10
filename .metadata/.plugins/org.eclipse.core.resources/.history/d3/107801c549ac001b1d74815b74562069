@@ -1,0 +1,8 @@
+
+public class Player {
+	private int playerid;
+	String playernick;
+	String firstname;
+	String lastname;
+	String identification;
+}

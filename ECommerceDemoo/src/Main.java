@@ -1,0 +1,32 @@
+import business.concretes.UserManager;
+import core.EmailCheckAdapter;
+import core.EmailSendAdapter;
+import core.EmailSendCheckAdapter;
+import core.JGoogleManagerAdapter;
+import dataAccess.concretes.XyzUserDao;
+import entities.concretes.User;
+
+public class Main {
+
+	public static void main(String[] args) {
+		User user1 = new User("Emre","Vatan","muhammetemrevatan@gmail.com","123456");
+		User user2 = new User("Meee","Veeee","muhammetemrevatan@gmail.com","1234567");
+		User user3 = new User();
+		User user4 = new User("M","V","sanane@gmail.com","12345678");
+		UserManager userManager = new UserManager(new EmailCheckAdapter(),new XyzUserDao(),new EmailSendAdapter(), new EmailSendCheckAdapter());
+		
+		JGoogleManagerAdapter jGoogleManagerAdapter = new JGoogleManagerAdapter();
+		
+		userManager.register(user1);
+		System.out.println("     ---------    ");
+		userManager.register(user2);
+		System.out.println("     ---------    ");
+		jGoogleManagerAdapter.register(user3);
+		
+		userManager.login(user1);
+		userManager.login(user4);
+		
+		
+	}
+
+}

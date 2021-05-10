@@ -1,0 +1,6 @@
+package entities.concretes;
+
+public class User {
+	private String firstname;
+	private String lastname;
+}

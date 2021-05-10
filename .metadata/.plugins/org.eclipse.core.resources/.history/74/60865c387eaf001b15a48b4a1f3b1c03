@@ -1,0 +1,7 @@
+package JGoogle;
+
+public class GoogleAdapter {
+	public void googleRegister() {
+		System.out.println("Google ile kayýt oldu...");
+	}
+}

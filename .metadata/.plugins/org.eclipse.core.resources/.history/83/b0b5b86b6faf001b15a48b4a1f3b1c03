@@ -1,0 +1,15 @@
+package core;
+
+import entities.concretes.User;
+
+public class EmailCheckAdapter implements EmailCheckService{
+	
+	private String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+
+	@Override
+	public boolean emailCheck(User user) {
+		
+		return false;
+	}
+
+}

@@ -1,0 +1,5 @@
+package Entities;
+
+public interface ICustomerService {
+	void add(Customer customer);
+}

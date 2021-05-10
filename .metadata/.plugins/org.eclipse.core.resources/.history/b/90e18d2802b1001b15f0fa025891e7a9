@@ -1,0 +1,11 @@
+package kodlamaio.hrms.api.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlamaio.hrms.business.concretes.JobTitleManager;
+
+
+@RestController
+public class JobTitlesController {
+	private JobTitleManager jobTitleManager;
+}

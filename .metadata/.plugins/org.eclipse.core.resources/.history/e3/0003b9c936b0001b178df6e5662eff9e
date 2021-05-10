@@ -1,0 +1,6 @@
+package kodlamaio.northwind.entities.concretes;
+
+public class Product {
+	private int id;
+	private int categoryId;
+}

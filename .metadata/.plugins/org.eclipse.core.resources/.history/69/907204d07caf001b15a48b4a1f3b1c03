@@ -1,0 +1,10 @@
+package core;
+
+public class EmailSendCheckAdapter implements EmailSendCheckService {
+
+	@Override
+	public boolean sendCheck() {
+		return true;
+	}
+
+}

@@ -1,0 +1,31 @@
+import Concrete.BaseCustomerManager;
+import Concrete.CampaignManager;
+import Concrete.CustomerManager;
+import Concrete.MernisServiceAdaptor;
+import Concrete.SalesManager;
+import Entities.Campaign;
+import Entities.Customer;
+import Entities.Sales;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customer customer1 = new Customer(1, "queRy0", "Emre", "Vatan", "1998", "15145897562");
+		Sales sale1 = new Sales(1, 100, "Age of Empires 2");
+		Campaign campaign1 = new Campaign(1, "yayýncý indirimi %10", 10);
+		
+		BaseCustomerManager customerManager = new CustomerManager(new MernisServiceAdaptor());
+		SalesManager salesManager = new SalesManager();
+		CampaignManager campaignManager = new CampaignManager()
+		
+		
+		
+		customerManager.save(customer1);
+		salesManager.sale(sale1, customer1);
+		customerManager.update(customer1);
+		customerManager.delete(customer1);
+
+	}
+
+}

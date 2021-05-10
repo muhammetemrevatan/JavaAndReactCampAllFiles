@@ -1,0 +1,5 @@
+
+public class Player {
+	private int playerId;
+	String playerName;
+}

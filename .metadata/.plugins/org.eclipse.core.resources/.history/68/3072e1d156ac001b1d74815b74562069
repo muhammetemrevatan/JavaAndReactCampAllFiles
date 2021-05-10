@@ -1,0 +1,44 @@
+import Concrete.BaseCustomerManager;
+import Concrete.CampaignManager;
+import Concrete.CampaignServiceManager;
+import Concrete.CustomerManager;
+import Concrete.MernisServiceAdaptor;
+import Concrete.SalesManager;
+import Entities.Campaign;
+import Entities.Customer;
+import Entities.Sales;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Customer customer1 = new Customer(1, "queRy0", "Emre", "Vatan", "1998", "15145897562");
+		Customer customer2 = new Customer(1, "queRy0", "Muhammet", "Vatan", "1998", "15145897562");
+		Sales sale1 = new Sales(1, 100, "Age of Empires 2");
+		Campaign campaign1 = new Campaign(1, "yayýncý indirimi %10", 10);
+		Campaign campaign2 = new Campaign(0, "normal satýn alým indirimi %0", 0);
+		
+		BaseCustomerManager customerManager = new CustomerManager(new MernisServiceAdaptor());
+		SalesManager salesManager = new SalesManager();
+		CampaignManager campaignManager = new CampaignManager();
+		CampaignServiceManager campaignServiceManager = new CampaignServiceManager();
+		
+		
+		customerManager.save(customer1);
+		campaignManager.addCampaign(campaign1);
+		campaignServiceManager.controlGameId(campaign1, sale1);
+		salesManager.sale(sale1, customer1);
+		customerManager.update(customer1);
+		customerManager.delete(customer1);
+		
+		customerManager.save(customer2);
+		campaignManager.addCampaign(campaign2);
+		campaignServiceManager.controlGameId(campaign2, sale1);
+		salesManager.sale(sale1, customer2);
+		customerManager.update(customer2);
+		customerManager.delete(customer2);
+		
+
+	}
+
+}

@@ -1,0 +1,32 @@
+package Concrete;
+
+import Entities.Campaign;
+
+public class CampaignManager {
+	
+	private int newPrice;
+	
+	public int getNewPrice() {
+		return newPrice;
+	}
+
+	public void setNewPrice(int newPrice) {
+		this.newPrice = newPrice;
+	}
+
+	public CampaignManager(int newPrice) {
+		super();
+		this.newPrice = newPrice;
+	}
+	
+	public void addCampaign(Campaign campaign) {
+		System.out.println("Kampanya eklendi.. : " + campaign.getCampaignName());
+	}
+	public void updateCampaign(Campaign campaign) {
+		System.out.println("Kampanya güncellendi.. : " + campaign.getCampaignName());
+	}
+	public void deleteCampaign(Campaign campaign) {
+		System.out.println("Kampanya silindi.. : " + campaign.getCampaignName());
+	}
+	
+}
