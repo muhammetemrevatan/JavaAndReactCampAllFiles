@@ -1,0 +1,79 @@
+CREATE TABLE public.users
+(
+    id integer GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ) PRIMARY KEY,
+    email character varying(50) NOT NULL UNIQUE,
+    password character varying(32) NOT NULL
+);
+
+CREATE TABLE public.candidates
+(
+    id integer NOT NULL PRIMARY KEY,
+    first_name character varying(50) NOT NULL,
+    last_name character varying(50) NOT NULL,
+    identity_number character varying(11) NOT NULL UNIQUE,
+    date_of_birth date NOT NULL,
+	CONSTRAINT fk_candidate_users_id FOREIGN KEY (id) REFERENCES public.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.employees
+(
+    id integer NOT NULL PRIMARY KEY,
+    first_name character varying(50) NOT NULL,
+    last_name character varying(50) NOT NULL,
+	CONSTRAINT fk_employees_users_id FOREIGN KEY(id) REFERENCES public.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.employers
+(
+    id integer PRIMARY KEY NOT NULL ,
+    company_name character varying(100) NOT NULL,
+    web_adress character varying(50) NOT NULL,
+    phone_number character varying(17) NOT NULL,
+	CONSTRAINT fk_employers_users_id FOREIGN KEY (id) REFERENCES public.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.verify_code
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ) PRIMARY KEY,
+    verify_code character varying(10) NOT NULL UNIQUE,
+    is_confirmed boolean,
+    created_date date NOT NULL,
+    confirmed_date date
+);
+
+CREATE TABLE public.candidate_email_verify
+(
+    id integer NOT NULL PRIMARY KEY,
+    candidate_id integer NOT NULL,
+    status boolean,
+	CONSTRAINT fk_candidate_email_verify_candidates_id FOREIGN KEY (candidate_id) REFERENCES public.candidates (id) ON DELETE CASCADE,
+	CONSTRAINT fk_candidate_email_verify_verify_code_id FOREIGN KEY (id) REFERENCES public.verify_code (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.employer_email_verify
+(
+    id integer NOT NULL PRIMARY KEY,
+    employer_id integer NOT NULL,
+    status boolean,
+	CONSTRAINT fk_employer_email_verify_employers_id FOREIGN KEY (employer_id) REFERENCES public.employers (id) ON DELETE CASCADE,
+	CONSTRAINT fk_employer_email_verify_verify_code_id FOREIGN KEY (id) REFERENCES public.verify_code (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.employer_employee_verify
+(
+    id integer NOT NULL PRIMARY KEY,
+    employer_id integer NOT NULL,
+    employee_id integer,
+    confirm_date date,
+    status boolean,
+	CONSTRAINT fk_employer_employee_verify_employer_id FOREIGN KEY (employer_id)  REFERENCES public.employers (id) ON DELETE CASCADE,
+	CONSTRAINT fk_employer_employee_verify_employee_id FOREIGN KEY (employee_id)REFERENCES public.employees (id) ON DELETE CASCADE,
+	CONSTRAINT fk_employer_employee_verify_verify_code_id FOREIGN KEY (id) REFERENCES public.verify_code (id) ON DELETE CASCADE
+);
+
+CREATE TABLE public.job_positions
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ) PRIMARY KEY,
+    "position" character varying(50) NOT NULL UNIQUE
+);
+
